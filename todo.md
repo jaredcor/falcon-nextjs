@@ -1,0 +1,2 @@
+- implement slippijs
+- implement grid design to set up UI
