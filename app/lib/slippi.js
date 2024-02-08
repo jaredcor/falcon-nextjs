@@ -1,6 +1,6 @@
 const { SlippiGame } = require('@slippi/slippi-js');
 
-export default function parseReplay(event) {
+export default function ParseReplay(event) {
   const game = new SlippiGame(event.target.files[0]);
 
   // Get game settings – stage, characters, etc

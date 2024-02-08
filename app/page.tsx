@@ -1,24 +1,39 @@
 import Link from 'next/link';
-import styles from '@/app/ui/home.module.css';
 import { lusitana } from "./ui/fonts";
 import Image from "next/image";
 import FileUploadForm from "@/components/FileUploadForm";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
+
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        falcon-nextjs
+    <div className="flex min-h-screen flex-col p-6">
+      <div className="flex w-full max-w-sm items-center space-x-2">
+        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+          falcon-nextjs
+        </h1>
+        <ModeToggle />
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <p className={ `${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal` }>
-            Upload your slippi directory
-          </p>
-          {/* <CustomFileSelector /> */}
-          <FileUploadForm />
+        <div className="grid w-full max-w-sm items-center gap-1.5">
+          <Label htmlFor="file">
+            <p className="text-xl text-muted-foreground">
+              Upload your slippi directory
+            </p>
+          </Label>
+          <div className="flex w-full max-w-sm items-center space-x-2">
+            <Input id="file" type="file" multiple />
+            {/* TODO: make button do something */}
+            <Button type="submit" variant="default" size="icon">
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
