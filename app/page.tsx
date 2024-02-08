@@ -1,7 +1,4 @@
-import Link from 'next/link';
 import { lusitana } from "./ui/fonts";
-import Image from "next/image";
-import FileUploadForm from "@/components/FileUploadForm";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ModeToggle } from "@/components/ui/mode-toggle";
