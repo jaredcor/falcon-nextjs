@@ -18,6 +18,9 @@ import { ChevronRight } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import Script from "next/script";
+import { SlippiGame } from "@slippi/slippi-js";
+
 
 const formSchema = z.object({
   file: z
@@ -35,6 +38,12 @@ export default function Page() {
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    // Loop through each replay file
+    Array.from(data.file).forEach(file => {
+      console.log(file.name);
+      // TODO: slippi parsing
+      // const game = new SlippiGame(file.name);
+    })
   };
 
   return (
@@ -64,7 +73,6 @@ export default function Page() {
                           multiple 
                           {...fileRef}
                         />
-                        {/* TODO: make button do something */}
                         <Button type="submit" variant="default" size="icon">
                           <ChevronRight className="h-4 w-4" />
                         </Button>
@@ -74,7 +82,6 @@ export default function Page() {
                   </FormItem>
                 )}
               />
-              
             </form>
           </Form>
         </div>
